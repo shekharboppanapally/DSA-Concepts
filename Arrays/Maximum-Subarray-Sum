@@ -1,0 +1,53 @@
+import sys
+MaxiMum Contigious Subarrays sum
+In this There are threes methods to find the maximum Subarray sum
+
+
+1.Brute Force
+->Using three for loops 
+->Generating all possible subarrays using threes for loops and finding the maximum of it
+def solve(arr):
+    maxSum=-(sys.maxsize)
+    for i in range(len(arr)):
+        for j in range(i,len(arr)):
+            sum=0
+            for k in range(i,j+1):
+                sum+=arr[k]
+            maxSum=max(maxSum,sum)
+    return maxSum
+print(solve([1,2,3,-2,5]))
+Time Complexiety : O(n^3),1
+
+
+
+2.->By using Two for loops 
+def solve(arr):
+    maxSum=-(sys.maxsize)
+    for i in range(len(arr)):
+        sum=0
+        for j in range(i,len(arr)):
+            sum+=arr[j]
+            maxSum=max(maxSum,sum)
+    return maxSum
+print(solve([1,2,3,-2,5])) 
+Time Complexiety : O(N^2),1
+
+
+
+
+3. Here comes the third approach using '''Kedanes Algorithm'''
+->this is the simplest Algorithm
+def solve(arr):
+    sum=0
+    maxSum=-(sys.maxsize)
+    for x in arr:
+        sum+=x 
+        maxSum=max(maxSum,sum)
+        if sum<0:
+            sum=0
+    return maxSum
+print(solve([1,2,3,-2,5]))
+Time Complexity: O(N), 1
+
+
+            
