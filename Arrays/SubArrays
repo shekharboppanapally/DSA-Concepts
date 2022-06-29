@@ -1,0 +1,31 @@
+'''what is a subarray ? 
+A Subarray is commonly defined as part or section of an array
+A Subarray is a continous part
+In this I have discussed two methods to find the subarrays in Python 
+1.Simple Method using for Loops
+2. Using Recursion '''
+
+#Using For loops 
+def subarrays(arr):
+    for i in range(len(arr)):
+        for j in range(i,len(arr)):
+            for k in range(i,j+1):
+                print(arr[k],end=' ')
+            print()
+subarrays([1,2,3,4])
+Time Complexiety=O(n),1 
+
+
+
+#Using Recursion 
+def subarrays(arr,start,end):
+    if end==len(arr):
+        return 
+    elif start>end:
+        return subarrays(arr,0,end+1)
+    else:
+        print(arr[start:end+1])
+        return subarrays(arr,start+1,end)
+subarrays([1,2,3,4],0,0)
+Time Complexiety: O(n^2)
+
